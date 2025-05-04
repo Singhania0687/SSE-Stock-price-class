@@ -1,0 +1,67 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stock Price</title>
+</head>
+<body>
+    <h1>Apple Inc stock price Live :</h1>
+    <div id="stock-price"></div>
+    <script>
+        const eventSource = new EventSource('http://localhost:5000/stock');
+        eventSource.onmessage=(event)=>{
+            const stockPrice = JSON.parse(event.data);
+            if(stockPrice.error)
+                document.getElementById('stock-price').innerHTML = `<h2>............</h2>`;
+            else
+                document.getElementById('stock-price').innerHTML = `<h2>Current Price of ${stockPrice.symbol}: $${stockPrice.price} </h2>`;
+        }
+    </script>
+    
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Stock Price</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #eef2f7;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      color: #16a085;
+    }
+  </style>
+</head>
+<body>
+  <h1>Apple Inc. Stock Price Live:</h1>
+  <div id="stock-price"><h2>Loading...</h2></div>
+
+  <script>
+    const eventSource = new EventSource('http://localhost:5001/stock');
+
+    eventSource.onmessage = (event) => {
+      const stockPrice = JSON.parse(event.data);
+      if (stockPrice.error) {
+        document.getElementById('stock-price').innerHTML = `<h2>Error fetching data</h2>`;
+      } else {
+        const formattedPrice = parseFloat(stockPrice.price).toFixed(2);
+        document.getElementById('stock-price').innerHTML = `<h2>Current Price of ${stockPrice.symbol}: $${formattedPrice}</h2>`;
+      }
+    };
+
+    eventSource.onerror = () => {
+      document.getElementById('stock-price').innerHTML = `<h2>Connection lost... trying to reconnect</h2>`;
+    };
+  </script>
+</body>
+</html>

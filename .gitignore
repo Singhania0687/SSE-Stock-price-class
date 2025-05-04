@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# dotenv environment variables
+.env
+
+# logs
+logs
+*.log
+
+# lock files
+package-lock.json
+
+# OS-specific files (macOS)
+.DS_Store
