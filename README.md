@@ -18,7 +18,7 @@ This is a simple web application that shows **live stock prices** using **Server
 
 - **Frontend**: HTML, JavaScript
 - **Backend**: Node.js, Express
-- **API**: [Twelve Data API](https://twelvedata.com) or [Finnhub API](https://finnhub.io)
+- **API**: [Twelve Data API](https://twelvedata.com) 
 
 ---
 
@@ -54,7 +54,7 @@ PORT=5000
 
 > 🔑 You can get a free API key from:
 > - [Twelve Data](https://twelvedata.com)
-> - [Finnhub](https://finnhub.io)
+
 
 ### 4. Start the backend server
 bash
@@ -63,10 +63,6 @@ node server.js
 
 ### 5. Open frontend
 Use **Live Server** (VS Code extension) or any static file server to open `index.html`:
-bash
-# Using Python (optional)
-cd public
-python3 -m http.server 5500
 
 Then open `http://localhost:5500` in your browser.
 

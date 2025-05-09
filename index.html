@@ -1,26 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Stock Price</title>
-</head>
-<body>
-    <h1>Apple Inc stock price Live :</h1>
-    <div id="stock-price"></div>
-    <script>
-        const eventSource = new EventSource('http://localhost:5000/stock');
-        eventSource.onmessage=(event)=>{
-            const stockPrice = JSON.parse(event.data);
-            if(stockPrice.error)
-                document.getElementById('stock-price').innerHTML = `<h2>............</h2>`;
-            else
-                document.getElementById('stock-price').innerHTML = `<h2>Current Price of ${stockPrice.symbol}: $${stockPrice.price} </h2>`;
-        }
-    </script>
-    
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
